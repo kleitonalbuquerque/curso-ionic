@@ -1,14 +1,10 @@
 {
-  "name": "nofood",
+  "name": "nofood.api",
   "version": "1.0.0",
-  "description": "Api feita em node para utilização do nosso App NoFood",
+  "description": "Api feita em Node para utilizar na aplicação",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
   },
   "keywords": [
     "node",
