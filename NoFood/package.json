@@ -1,0 +1,19 @@
+{
+  "name": "nofood",
+  "version": "1.0.0",
+  "description": "Api feita em node para utilização do nosso App NoFood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "ionic"
+  ],
+  "author": "Kleiton Albuquerque",
+  "license": "ISC"
+}
