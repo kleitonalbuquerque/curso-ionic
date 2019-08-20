@@ -1,9 +1,11 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const produtoModel = new schema({
+mongoose.set('useCreateIndex', true)
+
+const produtoModel = new Schema({
   nome: {
     type: String,
     required: true,

@@ -10,7 +10,7 @@ function categoriaController() {
 
 categoriaController.prototype.post = async (req, res) => {
   let modelo = new categoria(req.body)
-  let resultado = await modelo.save
+  let resultado = await modelo.save()
   res.status(201).send(resultado)
 }
 

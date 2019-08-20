@@ -1,9 +1,11 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const categoriaModel = new schema({
+mongoose.set('useCreateIndex', true)
+
+const categoriaModel = new Schema({
   titulo: {
     trim: true,
     index: true,
