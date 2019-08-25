@@ -4,7 +4,7 @@ exports.post = async(repository, validationContract, req, res) => {
     if(!validationContract.isValid()) {
       res.status(400).send({ 
         message: 'Existem dados inválidos na sua requisição', 
-        validation: validationContract.error() 
+        validation: validationContract.errors() 
       }).end()
       return
     }
@@ -14,7 +14,7 @@ exports.post = async(repository, validationContract, req, res) => {
 
   } catch (err) {
     console.log('post com erro ', err)
-    res.status(500).send({ message: 'Erro no processamento ', error: err })
+    res.status(500).send({ message: 'Erro no processamento ', errors: err })
   }
 }
 
@@ -24,7 +24,7 @@ exports.put = async(repository, validationContract, req, res) => {
     if(!validationContract.isValid()) {
       res.status(400).send({ 
         message: 'Existem dados inválidos na sua requisição', 
-        validation: validationContract.error() 
+        validation: validationContract.errors() 
       }).end()
       return
     }
@@ -34,7 +34,7 @@ exports.put = async(repository, validationContract, req, res) => {
     
   } catch (err) {
     console.log('put com erro ', err)
-    res.status(500).send({ message: 'Erro no processamento ', error: err })
+    res.status(500).send({ message: 'Erro no processamento ', errors: err })
   }
 }
 
@@ -44,7 +44,7 @@ exports.get = async(repository, req, res) => {
     res.status(200).send(data)
   } catch (err) {
     console.log('get com erro ', err)
-    res.status(500).send({ message: 'Erro no processamento ', error: err })
+    res.status(500).send({ message: 'Erro no processamento ', errors: err })
   }
 }
 
@@ -60,7 +60,7 @@ exports.getById = async(repository, validationContract, req, res) => {
     
   } catch (err) {
     console.log('getById com erro ', err)
-    res.status(500).send({ message: 'Erro no processamento ', error: err })
+    res.status(500).send({ message: 'Erro no processamento ', errors: err })
   }
 }
 
@@ -73,8 +73,8 @@ exports.delete = async(repository, req, res) => {
     } else {
       res.status(400).send({ message: 'O parâmetro Id precisa ser informado!' })
     }
-  } catch (error) {
+  } catch (err) {
       console.log('Delete com erro ', err)
-      res.status(500).send({ message: 'Erro no processamento ', error: err })
+      res.status(500).send({ message: 'Erro no processamento ', errors: err })
   }
 }
