@@ -6,25 +6,11 @@ const Schema = mongoose.Schema
 mongoose.set('useCreateIndex', true)
 
 const categoriaModel = new Schema({
-  titulo: {
-    trim: true,
-    index: true,
-    required: true,
-    type: String
-  },
+  titulo: { trim: true, index: true, required: true, type: String },
   descricao: { type: String },
-  foto: {
-    type: String,
-    required: true
-  },
-  ativo: {
-    type: Boolean,
-    required: true
-  },
-  dataCriacao: {
-    type: Date,
-    default: Date.now
-  }
+  foto: { type: String, required: true },
+  ativo: { type: Boolean, required: true, default: true },
+  dataCriacao: { type: Date, default: Date.now }
 },{ versionKey: false })
 
 categoriaModel.pre('save', next => {

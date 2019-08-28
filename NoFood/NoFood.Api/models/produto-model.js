@@ -8,9 +8,9 @@ mongoose.set('useCreateIndex', true)
 const produtoModel = new Schema({
   nome: { type: String, required: true, trim: true, index: true },
   descricao: { type: String, required: true },
-  preco: { type: Number, required: true },
+  preco: { type: Number, required: true, default: 0 },
   foto: { type: String, required: true },
-  ativo: { type: Boolean, required: true },
+  ativo: { type: Boolean, required: true, default: true },
   dataCriacao: { type: Date, default: Date.now }
 }, { versionKey: false })
 
