@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-mongoose.set('useCreateIndex', true)
+// mongoose.set('useCreateIndex', true)
 
 const usuarioModel = new Schema({
   nome: { type: String, required: true, trim: true, index: true },

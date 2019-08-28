@@ -48,7 +48,7 @@ exports.get = async(repository, req, res) => {
   }
 }
 
-exports.getById = async(repository, validationContract, req, res) => {
+exports.getById = async(repository, req, res) => {
   try {
     let id = req.params.id
     if(id) {

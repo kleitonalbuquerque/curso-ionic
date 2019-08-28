@@ -11,16 +11,17 @@ function usuarioController() {
 }
 
 usuarioController.prototype.post = async (req, res) => {
+
   let _validationContract = new validation()
 
   _validationContract.isRequired(req.body.nome, 'Informe seu nome')
   _validationContract.isRequired(req.body.email, 'Informe seu e-mail')
-  _validationContract.isEmail(req.body.senha, 'O e-mail informado é inválido')
+  _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido')
   _validationContract.isRequired(req.body.senha, 'A senha é obrigatória')
   _validationContract.isRequired(req.body.senhaConfirmacao, 'A senha de confirmação é obrigatória')
   _validationContract.isTrue(req.body.senha != req.body.senhaConfirmacao, 'A senha e a confirmação não são iguais')
 
-  let usuarioIsEmailExiste = await this._repo.isEmailExiste(req.body.email)
+  let usuarioIsEmailExiste = await _repo.isEmailExiste(req.body.email)
   if(usuarioIsEmailExiste) {
     _validationContract.isTrue((usuarioIsEmailExiste.nome != undefined), `${req.body.email} já existe!`) 
   }
@@ -36,12 +37,13 @@ usuarioController.prototype.put = async (req, res) => {
   
   _validationContract.isRequired(req.body.nome, 'Informe seu nome')
   _validationContract.isRequired(req.body.email, 'Informe seu e-mail')
-  _validationContract.isEmail(req.body.senha, 'O e-mail informado é inválido')
-  _validationContract.isEmail(req.params.id, 'Informe o Id do usuário que será editado')
+  _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido')
+  _validationContract.isRequired(req.params.id, 'Informe o Id do usuário que será editado')
 
-  let usuarioIsEmailExiste = await this._repo.isEmailExiste(req.body.email)
+  let usuarioIsEmailExiste = await _repo.isEmailExiste(req.body.email)
   if(usuarioIsEmailExiste) {
-    _validationContract.isTrue((usuarioIsEmailExiste.nome != undefined) && 
+    _validationContract.isTrue(
+    (usuarioIsEmailExiste.nome != undefined) && 
     (usuarioIsEmailExiste._id != req.params.id), 
     `${req.body.email} já existe!`) 
   }

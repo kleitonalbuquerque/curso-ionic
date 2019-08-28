@@ -23,12 +23,13 @@ class UsuarioRepository {
   }
 
   async update(id, data) {
-    let usuarioAtualizado = await this._base.update(id, {
+    let usuarioAtualizado = await this._base.update(id, 
+    {
       nome: data.nome,
       email: data.email,
       foto: data.foto
     })
-    return await this._base._model.findById(usuarioAtualizado._id, this._projection)
+    return this._base._model.findById(usuarioAtualizado._id, this._projection)
   }
 
   async getAll() {
