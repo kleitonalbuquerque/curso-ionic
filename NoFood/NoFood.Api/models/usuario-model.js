@@ -5,20 +5,20 @@ const Schema = mongoose.Schema
 
 mongoose.set('useCreateIndex', true)
 
-const produtoModel = new Schema({
+const usuarioModel = new Schema({
   nome: { type: String, required: true, trim: true, index: true },
-  descricao: { type: String, required: true },
-  preco: { type: Number, required: true },
-  foto: { type: String, required: true },
+  email: { type: String, required: true },
+  senha: { type: String, required: true },
+  foto: { type: String },
   ativo: { type: Boolean, required: true },
   dataCriacao: { type: Date, default: Date.now }
 }, { versionKey: false })
 
-produtoModel.pre('save', next => {
+usuarioModel.pre('save', next => {
   let agora = new Date()
   if (!this.dataCriacao)
     this.dataCriacao = agora
   next()
 })
 
-module.exports = mongoose.model('Produto', produtoModel)
+module.exports = mongoose.model('Usuario', usuarioModel)
