@@ -26,4 +26,9 @@ export class LoginPage {
     this.navCtrl.setRoot('CategoriaPage')
   }
 
+  // selecionarCategoria(event):void{
+  //   console.log('tab', event)
+  //   console.log(event.tabTitle)
+  // }
+
 }
